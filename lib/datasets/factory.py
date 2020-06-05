@@ -9,6 +9,12 @@
 
 __sets = {}
 
+from datasets.corosion_dataset import corosion_dataset
+corosion_devkit_path = '/home/antonella/third_party_software/py-faster-rcnn/data/Corosiondevkit'
+for split in ['train', 'test']:
+    name = '{}_{}'.format('corosion_dataset', split)
+    __sets[name] = (lambda split=split: corosion_dataset(split, inria_devkit_path))
+
 from datasets.pascal_voc import pascal_voc
 from datasets.coco import coco
 import numpy as np
